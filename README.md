@@ -27,3 +27,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [ ] user can search for a user by username.
 - [ ] send chat to user.
 - [ ] add/accept friends.
+
+### Page Plans
+
+1. login/signup page.
+2. home page.
+3. search user.
+4. chat/id
