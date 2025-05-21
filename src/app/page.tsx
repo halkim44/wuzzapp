@@ -1,4 +1,7 @@
-export default function Home() {
+import prisma from "@/lib/prisma";
+
+export default async function Home() {
+  const users = await prisma.user.findMany();
   return (
     <div className="m-12">
       <h1>Wuzzapp</h1>
@@ -10,8 +13,9 @@ export default function Home() {
         <div>
           <h3>User List</h3>
           <ul>
-            <li>User1</li>
-            <li>User2</li>
+            {users.map((u) => (
+              <li key={u.id}>{u.username}</li>
+            ))}
           </ul>
           <button className="mt-6">Search User</button>
         </div>

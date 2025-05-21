@@ -12,7 +12,7 @@ export default function Auth() {
           <label htmlFor="lname">Last name:</label>
           <br />
           <input type="text" id="lname" name="lname" /> <br />
-          <button type="submit">Login</button>
+          <button type="submit">Loginz</button>
         </form>
       </div>
     </div>

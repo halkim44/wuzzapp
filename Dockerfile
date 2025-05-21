@@ -1,4 +1,5 @@
-FROM node:23-alpine AS development
+# Development Stage
+FROM node:24-slim
 
 WORKDIR /app
 
