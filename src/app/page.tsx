@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import Link from "next/link";
 
 export default async function Home() {
   const users = await prisma.user.findMany();
@@ -7,7 +8,7 @@ export default async function Home() {
       <h1>Wuzzapp</h1>
       <p>A fun chat messaging app!. Please sign Up or Login.</p>
       <div>
-        <button>Login/Signup</button>
+        <Link href="/auth"> Login/Signup</Link>
       </div>
       <div className="flex mt-12">
         <div>

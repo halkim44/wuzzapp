@@ -137,6 +137,12 @@ exports.Prisma.RoomScalarFieldEnum = {
   id: 'id'
 };
 
+exports.Prisma.SessionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  expiresAt: 'expiresAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -156,7 +162,8 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Message: 'Message',
-  Room: 'Room'
+  Room: 'Room',
+  Session: 'Session'
 };
 
 /**

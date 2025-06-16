@@ -1,0 +1,109 @@
+// {
+//   "version": "0.2.0",
+//   "configurations": [
+//     {
+//       "name": "Attach to Docker - Next.js",
+//       "type": "node",
+//       "request": "attach",
+//       "port": 9229,
+//       "address": "localhost",
+//       "restart": true,
+//       "localRoot": "${workspaceFolder}",
+//       "remoteRoot": "/app"
+//     },
+//     {
+//       "name": "Containers: Node.js Launch",
+//       "type": "docker",
+//       "request": "launch",
+//       "preLaunchTask": "docker-run: debug",
+//       "platform": "node"
+//     }
+//   ]
+// }
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev"
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "Next.js: debug client-side (Firefox)",
+      "type": "firefox",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "reAttach": true,
+      "pathMappings": [
+        {
+          "url": "webpack://_N_E",
+          "path": "${workspaceFolder}"
+        }
+      ]
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/next/dist/bin/next",
+      "runtimeArgs": ["--inspect"],
+      "skipFiles": ["<node_internals>/**"],
+      "serverReadyAction": {
+        "action": "debugWithChrome",
+        "killOnServerStop": true,
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "webRoot": "${workspaceFolder}"
+      }
+    },
+
+    {
+      "name": "Docker Node.js Launch",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 9229,
+      "localRoot": "${workspaceFolder}/src",
+      "remoteRoot": "/app",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "smartStep": true,
+      "trace": true,
+      "outputCapture": "std"
+      // "preLaunchTask": "Start Dev Environment"
+    },
+    {
+      "name": "Docker Node.js",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 9229,
+      "localRoot": "${workspaceFolder}/src",
+      "remoteRoot": "/app",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "smartStep": true,
+      "trace": true,
+      "outputCapture": "std"
+      // "preLaunchTask": "Start Dev Environment"
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Containers: Attach to Node",
+      "port": 9229,
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}/src", // or "${workspaceFolder}/src"
+      "remoteRoot": "/app/src", // match your container's actual code path
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}

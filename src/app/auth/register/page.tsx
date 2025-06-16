@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 
-export default function Auth() {
+export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setMessage("");
     setError("");
@@ -22,7 +22,7 @@ export default function Auth() {
     }
 
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch("/api/account/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -31,9 +31,9 @@ export default function Auth() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.message || "Login failed");
+        setError(data.message || "Register failed");
       } else {
-        setMessage(data.message || "Login successful");
+        setMessage(data.message || "Register successful");
       }
     } catch {
       setError("Something went wrong. Please try again.");
@@ -44,8 +44,8 @@ export default function Auth() {
 
   return (
     <div className="max-w-sm mx-auto mt-16 p-6 bg-white rounded-2xl shadow-md border border-gray-200">
-      <h1 className="text-2xl font-bold mb-6 text-center">Login</h1>
-      <form onSubmit={handleLogin} className="space-y-4">
+      <h1 className="text-2xl font-bold mb-6 text-center">Register</h1>
+      <form onSubmit={handleRegister} className="space-y-4">
         <div>
           <label
             htmlFor="username"
@@ -85,7 +85,7 @@ export default function Auth() {
           disabled={loading}
           className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 disabled:opacity-50"
         >
-          {loading ? "Logging in..." : "Login"}
+          {loading ? "Logging in..." : "Register"}
         </button>
       </form>
 
