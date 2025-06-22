@@ -1,4 +1,4 @@
-import type { User, Session } from "@/app/generated/prisma";
+import type { User, Session } from "@/generated/prisma";
 import {
   encodeBase32LowerCaseNoPadding,
   encodeHexLowerCase,

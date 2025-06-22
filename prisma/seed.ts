@@ -1,4 +1,4 @@
-import { PrismaClient, Prisma } from "../src/app/generated/prisma";
+import { PrismaClient, Prisma } from "../src/generated/prisma";
 
 const prisma = new PrismaClient();
 
@@ -9,6 +9,10 @@ const userData: Prisma.UserCreateInput[] = [
   },
   {
     username: "Ikumi",
+    password: "BatmanBinSuparman",
+  },
+  {
+    username: "doraemon",
     password: "BatmanBinSuparman",
   },
 ];
