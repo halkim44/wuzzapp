@@ -9,7 +9,7 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
-  development:
+  app:
     build:
       context: .
     env_file:
@@ -18,6 +18,8 @@ services:
       - "3000:3000"
       - "9229:9229"
       - "9230:9230"
+    volumes:
+      - /app/src
     develop:
       watch:
         - action: sync
