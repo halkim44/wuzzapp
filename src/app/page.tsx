@@ -8,7 +8,7 @@ export default async function Home() {
       <h1>Wuzzapp</h1>
       <p>A fun chat messaging app!. Please sign Up or Login.</p>
       <div>
-        <Link href="/auth"> Login/Signup</Link>
+        <Link href="/auth"> Login</Link>/<Link href="/auth/register">Signup</Link>
       </div>
       <div className="flex mt-12">
         <div>

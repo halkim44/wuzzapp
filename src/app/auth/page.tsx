@@ -22,20 +22,21 @@ export default function Auth() {
     }
 
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch("/api/account/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
 
       const data = await res.json();
-
+      console.log(data);
       if (!res.ok) {
         setError(data.message || "Login failed");
       } else {
         setMessage(data.message || "Login successful");
       }
-    } catch {
+    } catch (error) {
+      console.log(error);
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);

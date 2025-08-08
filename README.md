@@ -25,17 +25,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Features
 
-### First Stage
-
-- [ ] use nextjs, nodejs and postgresql
-- [ ] user can signup and login with username and email. (simple)
-- [ ] user can search for a user by username.
-- [ ] send chat to user.
-- [ ] add/accept friends.
-
-### Page Plans
-
-1. login/signup page.
-2. home page.
-3. search user.
-4. chat/id
+features planned can be viewed [here](/feature-plan.md).
